@@ -15,10 +15,12 @@ class Rectangle:
 
     @property
     def width(self):
+        """  get width """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ width property setter """
         if value.isdigit():
             self.__width = value
         elif value < 0:
@@ -28,10 +30,12 @@ class Rectangle:
 
     @property
     def height(self):
+        """ height property getter """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ height property setter """
         if value.isdigit():
             self.__height = value
         elif value < 0:
