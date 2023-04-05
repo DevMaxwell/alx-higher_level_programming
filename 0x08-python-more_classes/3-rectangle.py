@@ -9,7 +9,7 @@ class Rectangle:
     class Rectangle that define a rectangle
     """
 
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """
         width -> rectangle width, height -> height of rectangle
         """
@@ -24,12 +24,11 @@ class Rectangle:
     @width.setter
     def width(self, value):
         """ width property setter """
-        if value.isdigit():
-            self.__width = value
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
-        else:
-            raise TypeError("width must be an integer") 
+        self.__width = value
 
     @property
     def height(self):
@@ -39,9 +38,19 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """ height property setter """
-        if value.isdigit():
-            self.__height = value
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
-        else:
-            raise TypeError("height must be an integer")
+        self.__height = value
+
+    def __str__(self):
+        """ customize custom str method """
+        myStr = ""
+        if self.__weight != 0 or self.__height != 0:
+            for i in range(self.__height):
+                for j in range(self.__weight):
+                    myStr += "#"
+                if i < self.__height - 1:
+                    myStr += "\n"
+        return myStr
