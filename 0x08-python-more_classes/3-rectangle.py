@@ -45,12 +45,12 @@ class Rectangle:
         self.__height = value
 
     def __str__(self):
-        """ customize custom str method """
+        """ customize __str__ medthod """
         myStr = ""
         if self.__weight != 0 or self.__height != 0:
             for i in range(self.__height):
                 for j in range(self.__weight):
                     myStr += "#"
-                if i < self.__height - 1:
+                if i < self.height - 1:
                     myStr += "\n"
         return myStr
