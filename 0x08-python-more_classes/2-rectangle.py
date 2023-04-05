@@ -5,11 +5,11 @@ class Rectangle that defines a rectangle
 
 
 class Rectangle:
-"""
-class Rectangle that defines a rectangle
-"""
+    """
+    class Rectangle that define a rectangle
+    """
 
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """
         width -> rectangle width, height -> height of rectangle
         """
@@ -24,12 +24,11 @@ class Rectangle that defines a rectangle
     @width.setter
     def width(self, value):
         """ width property setter """
-        if value.isdigit():
-            self.__width = value
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
-        else:
-            raise TypeError("width must be an integer") 
+        self.__width = value
 
     @property
     def height(self):
@@ -39,19 +38,18 @@ class Rectangle that defines a rectangle
     @height.setter
     def height(self, value):
         """ height property setter """
-        if value.isdigit():
-            self.__height = value
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
-        else:
-            raise TypeError("height must be an integer")
+        self.__height = value
 
     def area(self):
-        """ area of rectangle """
+        """return area of rectangle"""
         return (self.__width * self.__height)
 
     def perimeter(self):
-        """ perimeter of the rectangle """
+        """return the perimeter of rectangle"""
         if self.__width == 0 or self.__height == 0:
-            return (0)
-        return ((self.__width * 2) + (self.__height *2))
+            return 0
+        return (self.width * 2) + (self.__height * 2)
