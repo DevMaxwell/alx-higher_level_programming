@@ -1,0 +1,13 @@
+===============================
+Doctest for 0-add_integer
+===============================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(9, 6)
+15
+>>> add_integer(1.9, 1.4)
+2
+>>> add_integer(0)
+98
+>>> add_integer(28, 3)
+31
