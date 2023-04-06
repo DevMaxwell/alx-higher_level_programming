@@ -2,7 +2,11 @@
 Doctest for 0-add_integer
 ===============================
 
+#Importing fuctin to be tested
 >>> add_integer = __import__('0-add_integer').add_integer
+
+
+#testing with regular numbers
 >>> add_integer(9, 6)
 15
 >>> add_integer(1.9, 1.4)
@@ -11,11 +15,21 @@ Doctest for 0-add_integer
 98
 >>> add_integer(28, 3)
 31
+
+#testing for non number values
 >>> add_integer(1, float('nan'))
 Traceback (most recent call last):
 ...
 ValueError: cannot convert float NaN to integer
+
+#testing for non integer or float data type
 >>> add_integer([1], 2)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
+#testing for float overflow
+>>> add_integer(1, float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
