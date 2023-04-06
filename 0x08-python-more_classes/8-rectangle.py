@@ -8,13 +8,16 @@ class Rectangle:
     """
     class Rectangle that define a rectangle
     """
+    number_of_instances = 0
+    print_symbol = "#"
 
-    def __init__(self, width = 0, height = 0):
+    def __init__(self, width=0, height=0):
         """
         width -> rectangle width, height -> height of rectangle
         """
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -24,12 +27,11 @@ class Rectangle:
     @width.setter
     def width(self, value):
         """ width property setter """
-        if value.isdigit():
-            self.__width = value
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
-        else:
-            raise TypeError("width must be an integer") 
+        self.__width = value
 
     @property
     def height(self):
@@ -39,9 +41,44 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """ height property setter """
-        if value.isdigit():
-            self.__height = value
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
+        self.__height = value
+
+    def __str__(self):
+        """ customize __str__ medthod """
+        myStr = ""
+        if self.__weight != 0 or self.__height != 0:
+            for i in range(self.__height):
+                for j in range(self.__weight):
+                    myStr += str(self.print_symbol)
+                if i < self.height - 1:
+                    myStr += "\n"
+        return myStr
+
+    def __repr__(self):
+        """ customize custom __repr__ method """
+        myRepr = ""
+        myPepr += "Rectangle(' + str(self.__width) + ",
+        myRepr += " + str(self.__height)+ ')"
+
+    def __del__(self):
+        """ return 'Bye Rectangle..' when an instance is deleted"""
+        type(self).number_of_instances -= 1
+        print('Bye rectangle...')
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """   Check for largets of two instace of ractangle """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        if rect_2.area() >= rect_1.area():
+            return rect_2
         else:
-            raise TypeError("height must be an integer")
+            return rect_1
