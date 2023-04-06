@@ -1,0 +1,39 @@
+======================
+Doctest for 2-matrix_divided.py
+======================
+
+# import functin to be tested
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+#testing with rugular numbers
+>>> matrix = [[1, 2, 3],[4, 5, 6]]
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix = [[1.2, 2.2, 3.2], [4.2, 5.2, 6.2]]
+>>> matrix_divided(matrix, 1.2)
+[[1.0, 1.83, 2.67], [3.5, 4.33, 5.17]]
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 1034)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+# test for missing one argument
+>>> print(matrix_divided(None, 5))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+# testing for missig two arguments
+>>> matrix_divided(None, None)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# testing for rows with different length
+>>> matrix = [[1, 2, 3], [4, 8, 7, 9], [2]]
+>>> matrix_divided( matrix, 1.5)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
