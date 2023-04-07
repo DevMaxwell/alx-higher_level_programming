@@ -26,10 +26,12 @@ class TestMaxInteger(unittest.TestCase):
 
     # regular tests
     def test_simple(self):
-        self.assertEqual(max_integer([0, 1, 7, 4]), 7)
-        self.assertEqual(max_integer([-1, -3, 0, 3, 6]), 6)
-        self.assertEqual(max_integer([6, 96]), 96)
-        self.assertEqual(max_integer([2]), 12)
+        self.assertEqual(max_integer([0, 1, 7]), 7)
+        self.assertEqual(max_integer([7, 1, 0]), 7)
+        self.assertEqual(max_integer([0, 7, 1]), 7)
+        self.assertEqual(max_integer([-1, 0, 3, 6]), 6)
+        self.assertEqual(max_integer([-3, -1, -7]), -1)
+        self.assertEqual(max_integer([12]), 12)
 
     # test for doc string
     def test_docstring(self):
