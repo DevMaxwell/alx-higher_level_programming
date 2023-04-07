@@ -7,7 +7,7 @@ Doctest for 3-say_my_name,py
 
 # test with regular args
 >>> say_my_name("Dev", "Maxwell")
-My name is John Smith
+My name is Dev Maxwell
 
 >>> say_my_name("Max")
 My name is Max 
