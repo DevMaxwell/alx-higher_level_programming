@@ -11,6 +11,7 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     elif text is "":
         print("", end='')
+    string = ""
     result = " "
     for i in text:
         if i is result and i is ' ':

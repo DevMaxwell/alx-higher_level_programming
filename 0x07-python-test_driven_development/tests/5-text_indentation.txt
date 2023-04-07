@@ -1,0 +1,35 @@
+====================================
+Doctest for 5-text_indentation.py
+====================================
+
+# import function to be tested on
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# regular tets
+>>> text_indentation("Hello?")
+Hello?
+<BLANKLINE>
+
+>>> text_indentation("hello")
+hello
+
+>>> text_indentation("Hello.   ")
+Hello.
+<BLANKLINE>
+
+>>> text_indentation("hel: lo")
+hel:
+<BLANKLINE>
+lo
+
+# test for non string val
+>>> text_indentation(3)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+# test for no value at all
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
