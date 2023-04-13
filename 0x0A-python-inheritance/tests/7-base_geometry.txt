@@ -3,7 +3,7 @@ Tests for 7-base_geometry.py
 ================================
 
 #importing module to be tested
- >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 #regular tests
 >>> bg = BaseGeometry()
