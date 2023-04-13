@@ -5,6 +5,12 @@ Tests for 7-base_geometry.py
 #importing module to be tested
 BaseGeometry = __import__('7-base_geometry').base_geometry
 
+#regular tests
+>>> bg = BaseGeometry()
+
+>>> bg.integer_validator("my_int", 12)
+
+>>> bg.integer_validator("width", 89
 
 #test area
 >>> bg = BaseGeometry()
