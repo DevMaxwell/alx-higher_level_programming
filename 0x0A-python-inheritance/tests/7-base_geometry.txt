@@ -1,0 +1,83 @@
+================================
+Tests for 7-base_geometry.py
+================================
+
+#importing module to be tested
+BaseGeometry = __import__('7-base_geometry').base_geometry
+
+
+#test area
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+#tests for non integer params
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "8")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+#test for boolean
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", True)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+#test for tuple 
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+#test for None
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+#tests for dict
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", {3, 7})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+#tests for list 
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", [4, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+#test for negtive numbers
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", -1)
+Traceback (most recent call last):
+...
+ValueError: name must be greater than 0
+
+#tests for value less than 0
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", 0)
+Traceback (most recent call last):
+...
+ValueError: name must be greater than 0
+
+#tests for no arguments passed in
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+# test for more than 1 positional arg in .area()
+>>> bg = BaseGeometry()
+>>> bg.area(5, 5)
+Traceback (most recent call last):
+TypeError: area() takes 1 positional argument but 3 were given
